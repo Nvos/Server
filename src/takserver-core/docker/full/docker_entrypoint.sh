@@ -143,7 +143,7 @@ cd ${TR}
 
 . ./setenv.sh
 
-java -jar -Xmx${CONFIG_MAX_HEAP}m -Dspring.profiles.active=config takserver.war &
+java -jar -Xmx${CONFIG_MAX_HEAP}m -Dspring.profiles.active=config takserver.war "${CONFIG}" &
 CONFIG_PID=$!
 java -jar -Xmx${MESSAGING_MAX_HEAP}m -Dspring.profiles.active=messaging takserver.war &
 MESSAGING_PID=$!
@@ -157,8 +157,8 @@ echo  -e "\033[33;5mWAITING FOR THE SERVER TO START UP BEFORE ADDING THE ADMIN U
 
 # Give some time for the server to start up
 sleep 44
-TAKCL_CORECONFIG_PATH="${CONFIG}"
-TAKCL_TAKIGNITECONFIG_PATH="${TAKIGNITECONFIG}"
+export TAKCL_CORECONFIG_PATH="${CONFIG}"
+export TAKCL_TAKIGNITECONFIG_PATH="${TAKIGNITECONFIG}"
 java -jar /opt/tak/utils/UserManager.jar certmod -A "/opt/tak/certs/files/${ADMIN_CERT_NAME}.pem"
 
 echo ADMIN USER ADDED

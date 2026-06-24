@@ -79,15 +79,15 @@ Note - These commands include the **duplicatelogs** profile. This turns off the 
 
 #### Run Configuration Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=config,duplicatelogs -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx512m -Dspring.profiles.active=config,duplicatelogs -jar ../build/libs/takserver-core-5.7-RELEASE-14.war
 ```
 #### Run Messaging Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=messaging,duplicatelogs -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx512m -Dspring.profiles.active=messaging,duplicatelogs -jar ../build/libs/takserver-core-5.7-RELEASE-14.war
 ```
 #### Run API Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=api,duplicatelogs -Dkeystore.pkcs12.legacy -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx512m -Dspring.profiles.active=api,duplicatelogs -Dkeystore.pkcs12.legacy -jar ../build/libs/takserver-core-5.7-RELEASE-14.war
 ```
 
 #### Run Plugin Manager Microservice (optional - useful when working on plugin capability)

@@ -1,0 +1,17 @@
+# Gradle
+**/.gradle/**
+**/build/**
+gradle-app.setting
+.gradletasknamecache
+
+# Gradle-generated version files (src/takserver-core/build.gradle:writeVerFile)
+src/takserver-core/src/main/resources/shortver.txt
+src/takserver-core/src/main/resources/ver.json
+
+# Node / Angular build caches and outputs
+node_modules/
+.angular/
+dist/
+**/webapp/Marti/metrics/browser/
+**/webapp/Marti/metrics/3rdpartylicenses.txt
+**/webapp/Marti/metrics/prerendered-routes.json

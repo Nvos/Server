@@ -53,7 +53,12 @@ CONFIG_VALUES = [
         ConfigEntry('POSTGRES_USER', 'tak:repository/tak:connection', 'username', False, False),
         ConfigEntry('POSTGRES_PASSWORD', 'tak:repository/tak:connection', 'password', True, True),
         ConfigEntry('TAKSERVER_CERT_PASS', 'tak:security/tak:tls', 'keystorePass', True, True),
-        ConfigEntry('CA_PASS', 'tak:security/tak:tls', 'truststorePass', True, True)
+        ConfigEntry('CA_PASS', 'tak:security/tak:tls', 'truststorePass', True, True),
+        # The federation-server connector (port 8444 / 9000 / 9001) reuses the same
+        # keystore/truststore files but is a separate XML element, so it needs the
+        # same passwords applied here too.
+        ConfigEntry('TAKSERVER_CERT_PASS', 'tak:federation/tak:federation-server/tak:tls', 'keystorePass', True, True),
+        ConfigEntry('CA_PASS', 'tak:federation/tak:federation-server/tak:tls', 'truststorePass', True, True)
 ]
 
 

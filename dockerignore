@@ -1,0 +1,9 @@
+# Keep the build context lean — only src/ is needed by the Dockerfile.
+.git
+**/build
+**/.gradle
+takdata
+*.md
+docker-compose.yml
+.env
+.env.example
