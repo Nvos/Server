@@ -30,12 +30,12 @@ COPY . /build/repo/
 # grgit's `git describe` resolves to a clean version string. Local git ops = fast.
 #   To build your own modifications instead: delete the `git checkout` line and
 #   commit your changes first (the force-tag below keeps `describe` working).
-RUN git config --global user.email "build@takserver.local" && \
-    git config --global user.name "TAK Docker Build" && \
-    git config --global --add safe.directory /build/repo && \
-    git checkout -B build "${TAK_REF}" && \
-    git tag -f -a "${TAK_REF}" -m "docker build" && \
-    git describe
+RUN git config --global user.email "build@takserver.local"
+RUN git config --global user.name "TAK Docker Build"
+RUN git config --global --add safe.directory /build/repo
+RUN git checkout -B build main
+RUN git tag -f -a "${TAK_REF}" -m "docker build"
+RUN git describe
 
 WORKDIR /build/repo/src
 # Gradle cache mount: downloaded deps + the wrapper survive across rebuilds, so
@@ -56,7 +56,7 @@ RUN set -eux; \
     cp takserver-usermanager/build/libs/UserManager-*-all.jar      /staging/tak/utils/UserManager.jar; \
     cp takserver-core/scripts/setenv.sh                            /staging/tak/setenv.sh; \
     cp -R takserver-core/scripts/certs                             /staging/tak/certs; \
-    cp takserver-core/example/CoreConfig.example.xml              /staging/tak/CoreConfig.example.xml; \
+    cp takserver-core/example/CoreConfig.xml                      /staging/tak/CoreConfig.xml; \
     cp takserver-core/example/TAKIgniteConfig.example.xml         /staging/tak/TAKIgniteConfig.example.xml; \
     cp takserver-core/docker/full/docker_entrypoint.sh            /staging/tak/docker_entrypoint.sh; \
     cp takserver-core/docker/full/coreConfigEnvHelper.py          /staging/tak/coreConfigEnvHelper.py

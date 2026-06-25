@@ -1,0 +1,12 @@
+<MissionPackageManifest version="2">
+   <Configuration>
+      <Parameter name="uid" value="a65d4efa-b63e-4c0a-8e87-37e3c9d039aa"/>
+      <Parameter name="name" value="LocalTAK"/>
+      <Parameter name="onReceiveDelete" value="true"/>
+   </Configuration>
+   <Contents>
+      <Content ignore="false" zipEntry="certs/config.pref"/>
+      <Content ignore="false" zipEntry="certs/truststore-intermediate.p12"/>
+      <Content ignore="false" zipEntry="certs/omnitak.p12"/>
+   </Contents>
+</MissionPackageManifest>

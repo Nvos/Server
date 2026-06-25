@@ -35,15 +35,14 @@ services:
         condition: service_healthy
     # The ':z' suffix relabels the bind mounts for SELinux (required on Fedora).
     volumes:
-      - ./takdata/logs:/opt/tak/data/logs:z
-      - ./takdata/certs:/opt/tak/data/certs:z
+      - ./takdata/:/opt/tak/data:z
     ports:
-      - "8089:8089"   # client streaming (TLS)
-      - "8443:8443"   # admin UI (client-cert auth)
-      - "8444:8444"   # federation v2
-      - "8446:8446"   # WebTAK / certificate enrollment
-      - "9000:9000"   # federation
-      - "9001:9001"   # federation
+      - "8089:8089" # client streaming (TLS)
+      - "8443:8443" # admin UI (client-cert auth)
+      - "8444:8444" # federation v2
+      - "8446:8446" # WebTAK / certificate enrollment
+      - "9000:9000" # federation
+      - "9001:9001" # federation
     networks:
       - taknet
 
